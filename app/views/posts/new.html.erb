@@ -1,0 +1,12 @@
+<%= form_for :post, url: posts_path do |f| %>  <p>
+
+    <%= f.label :Question %> 
+    <%= f.text_field :question %>
+  </p>
+ 
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+<%= link_to 'see questions list', posts_path %>
