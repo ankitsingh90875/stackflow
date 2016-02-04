@@ -1,21 +1,17 @@
-<!DOCTYPE html>
 <html>
-<head>
-  <title>Stackflow</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
- <body>
-    <header  class="navbar navbar-fixed-top navbar-inverse">
+  <head>
+   <%= stylesheet_link_tag 'application', media: 'all',
+                                           'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <header class="navbar navbar-fixed-top navbar-inverse">
       <div class="container">
        
         <nav>
           <ul class="nav navbar-nav navbar-right">
-           <li style="color:white; text-align:center"><% if member_signed_in? %>
-  <h4><%= current_member.email %></h4>
-<% end %></li>
-            <li><%= link_to "Home",   posts_path %></li>
+            <li><%= link_to "Home",   '#' %></li>
             <li><% if member_signed_in? %>
 <%= link_to "Sign Out", destroy_member_session_path, :method => :delete %>
 <% else %>
@@ -26,8 +22,7 @@
         </nav>
       </div>
     </header>
-    
-    <div  style="margin-top:100px;margin-bottom:100px" class="container">
+    <div class="container">
       <%= yield %>
     </div>
     <footer style="background-color:grey" class="navbar navbar-fixed-bottom navbar-inverse">
@@ -42,4 +37,5 @@
       </div>
     </footer>
   </body>
+
 </html>

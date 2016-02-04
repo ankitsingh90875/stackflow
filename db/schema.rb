@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160202072605) do
+ActiveRecord::Schema.define(version: 20160203070929) do
+
+  create_table "answers", force: true do |t|
+    t.string   "commenter"
+    t.string   "ans"
+    t.integer  "post_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "answers", ["post_id"], name: "index_answers_on_post_id", using: :btree
 
   create_table "members", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -37,6 +47,7 @@ ActiveRecord::Schema.define(version: 20160202072605) do
     t.string   "commenter"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "views",      default: 0
   end
 
 end

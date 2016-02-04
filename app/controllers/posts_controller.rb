@@ -19,14 +19,22 @@ class PostsController < ApplicationController
 
 	def show
       @post = Post.find(params[:id])
+      @post.views=@post.views+1
+      @post.save
    end
 
 	def new
+    if member_signed_in?
+
 	@posts = Post.new	
+  else
+    redirect_to new_member_session_path
+  end
 	end
 
 	def create
   @post = Post.new(post_params)
+  @post.commenter=current_member.email
  if @post.save
     redirect_to @post
   else

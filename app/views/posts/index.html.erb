@@ -1,19 +1,21 @@
-<h1>question  lists</h1>
- 
-<table>
-  <tr>
-    <th>question </th>
-    <th>Commenter</th>
-  </tr>
- 
-  <% @posts.each do |post| %>
-    <tr>
-      <td><%= post.question%></td>
-      <td><%= post.commenter %></td>
 
-   <td><%= link_to 'Show', post_path(post) %></td>
-   <td><%= link_to 'Edit', edit_post_path(post) %></td>
-    </tr>
-  <% end %>
-</table>
-<%= link_to 'ask question', new_post_path %>
+<div class="btn-group">
+  <%= button_to "ASK QUESTION", new_post_path, :class => "btn" %>
+</div>
+<!DOCTYPE html>
+
+<div class="row">
+    <div class="col-sm-8 col1">
+       <h1>question  lists</h1>
+<% @posts.each do |post| %>
+        <div class="col-sm-2"><%=   post.answers.count %>ans </div>
+        <div class="col-sm-2"><%=   post.views %> views</div>
+        <div class="col-sm-8"><%= link_to  post.question, post_path(post) %></div>
+        <% end %>
+
+
+    </div>
+    <div  style="background-color:red" class="col-sm-4 col1">
+        <div class="col-sm-12">12 of 12 width</div>
+    </div>
+</div>

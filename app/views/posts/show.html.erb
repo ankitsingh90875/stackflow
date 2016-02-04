@@ -1,9 +1,41 @@
 <p>
+  <strong>commenter:</strong>
+  <%= @post.commenter %>
+</p>
+
+<p>
   <strong>Question:</strong>
   <%= @post.question %>
 </p>
  
-<p>
-  <strong>commenter:</strong>
-  <%= @post.commenter %>
-</p>
+<% if (current_member.email== @post.commenter) %>
+ <%= link_to 'Edit', edit_post_path(@post) %>
+ <% end %>
+ <h2>Add a comment:</h2>
+<%= form_for :answer, url: post_answers_path(@post) do |f| %> 
+  <p>
+    <%= f.label :Answer %><br />
+    <%= f.text_field :ans %>
+  </p>
+ <p>
+   
+    </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+ <h2>Answer</h2>
+<% @post.answers.each do |answer| %>
+
+  <p>
+    <strong>Commenter:</strong>
+    <%= answer.commenter %>
+  </p>
+ 
+  <p>
+    <strong>Answer:</strong>
+    <%= answer.ans %>
+  </p>
+ 
+ 
+<% end %>
