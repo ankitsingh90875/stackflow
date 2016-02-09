@@ -1,21 +1,27 @@
-
-<div class="btn-group">
+<div  id="updates" class="na" >
+       <%= render partial: "activities" %>
+        </div>
+<div class="sectio" >
+<div class="btn-group ">
   <%= button_to "ASK QUESTION", new_post_path, :class => "btn" %>
 </div>
 <!DOCTYPE html>
 
-<div class="row">
-    <div class="col-sm-8 col1">
-       <h1>question  lists</h1>
+       <table style="width:500px; margin-top:30px"class="table table-striped table-bordered table-condensed">
+       <th colspan="3"> QUESTIONS LIST</th>
 <% @posts.each do |post| %>
-        <div class="col-sm-2"><%=   post.answers.count %>ans </div>
-        <div class="col-sm-2"><%=   post.views %> views</div>
-        <div class="col-sm-8"><%= link_to  post.question, post_path(post) %></div>
+
+<tr>
+<td style="width:30px"><%=   post.answers.count %> ans</td>
+<td style="width:50px"><%=   post.views %> views</td>
+<td style="width:20px"><%= link_to  post.question, post_path(post) %></td>
+</tr>
+
+     
         <% end %>
-
-
-    </div>
-    <div  style="background-color:red" class="col-sm-4 col1">
-        <div class="col-sm-12">12 of 12 width</div>
-    </div>
+</table>
 </div>
+    
+        
+   
+

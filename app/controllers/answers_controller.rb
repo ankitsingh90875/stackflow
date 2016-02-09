@@ -9,7 +9,12 @@ class AnswersController < ApplicationController
 			@ans.ans = params[:answer][:ans]
 			@ans.commenter=current_member.email
 			if @ans.save
-
+@act = Activity.new
+      
+   @act.doer=current_member.email
+  @act.activity="answered"
+  @act.post_id=@post.id
+  @act.save 
 
 		# @post = Post.find(params[:post_id])
    # @ans = @post.answers.create(params[:answer].permit(:commenter, :ans))

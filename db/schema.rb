@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160203070929) do
+ActiveRecord::Schema.define(version: 20160204115054) do
+
+  create_table "activities", force: true do |t|
+    t.integer  "post_id"
+    t.string   "doer"
+    t.string   "activity"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "activities", ["post_id"], name: "index_activities_on_post_id", using: :btree
 
   create_table "answers", force: true do |t|
     t.string   "commenter"

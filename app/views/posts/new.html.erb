@@ -1,7 +1,7 @@
 
   
 
-  
+  <div class="sectio">
 <%= form_for :post, url: posts_path do |f| %>  <p>
 
     <%= f.label :Question %> 
@@ -16,6 +16,13 @@
 <%= link_to 'see questions list', posts_path %>
 
 
-
+</div>
 
 <% end %>
+
+        <div  id="updates" class="na" >
+        
+       <%= render partial: "activities" %>
+      
+        </div>
+  

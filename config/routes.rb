@@ -1,5 +1,6 @@
 Stackflow::Application.routes.draw do
   get "home/index"
+  get "posts/refresh"
   devise_for :members
    resources :posts do
   	resources :answers

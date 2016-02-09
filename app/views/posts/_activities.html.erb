@@ -1,0 +1,12 @@
+   
+       <table style="width:280px; margin-top:30px">
+ <tr><th style= "text-align:center; size:6; color:red"> Recent activities</th></tr>
+         
+         <% @activities.each do |activity| %>
+
+         <tr><td><strong><%= activity.created_at.strftime('%D at %H:%M:%S') %></strong> </td></tr>
+         <tr><td> <% msg=activity.doer + " " + activity.activity + "  " + "'" +activity.post.question + "'" %>
+           <%= link_to   msg ,post_path(activity.post) %> </td></tr>    
+          <% end %>
+          </table>
+         

@@ -5,8 +5,29 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+  <style>
+  .na {
+    line-height:30px;
+    background-color:#eeeeee;
+    width:300px;
+    float:right;
+    padding:5px;        
+}
+.sectio {
+    width:500px;
+    float:left;
+    padding:10px;    
+}
+  </style>
+  <script>
+$(document).ready(function() {
+    setInterval(function () {
+          $.ajax('/posts/refresh');
+    } , 1000);          
+}); 
+</script>
 </head>
- <body>
+ <body onload="myFunction()">
     <header  class="navbar navbar-fixed-top navbar-inverse">
       <div class="container">
        
